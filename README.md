@@ -7,29 +7,36 @@ The script is still a work in progress as the final file contain all the origina
 I am running this in vs code, using python libraries version 3.11.2  I currently have it saved in my github account if anyone would like to download it frim there just let me know.
 
 
-From the initial file there will be 3 output files: 1. Email Sent.csv
-                                                    2. Email Opened.csv
-                                                    3. Clicked Link.csv
+From the initial file there will be 3 output files:
+1. Email Sent.csv 
+2. Email Opened.csv
+3. Clicked Link.csv
 
-Then the next step is to extract the list of IP's from Email Opened and Clicked link:   1.ip_list_opened.csv  
-                                                                                        2.ip_list_clicked.csv
+Then the next step is to extract the list of IP's from Email Opened and Clicked link:   
+1.ip_list_opened.csv  
+2.ip_list_clicked.csv
                                                                                                                                              
-Then isp whois lookup: 1.ip_result_opened.csv  
-                       2.ip_result_clicked.csv
+Then isp whois lookup: 
+1.ip_result_opened.csv  
+2.ip_result_clicked.csv
 
 
-This lookup is completed without headers so we need to add them back so we can parse back to the relevant files: 1.open_provider.csv
-                                                                                                                 2. click_provider.csv
+This lookup is completed without headers so we need to add them back so we can parse back to the relevant files: 
+1.open_provider.csv
+2. click_provider.csv
 
                                                                                                                                         
                                                                                                                                       
 
-Finally we need to add this information back to email opened and clicked link files: 1.open_add_provider_to_original.csv
-                                                                                     2.click_add_provider_to_original.csv
+Finally we need to add this information back to email opened and clicked link files: 
+1.open_add_provider_to_original.csv
+2.click_add_provider_to_original.csv
 
                                                                                     
 
-Last step convert to an excel file named: Report_Results.xlsx                                                                                   
+Last step convert to an excel file named: 
+Report_Results.xlsx                                                                                   
+
 
 note: again final report still hasban issue with ignored ip's, i will work on rectifying this.
 
