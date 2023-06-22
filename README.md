@@ -32,12 +32,17 @@ This lookup is completed without headers so we need to add them back so we can p
 Finally we need to add this information back to email opened and clicked link files: 
 
 1.open_add_provider_to_original.csv
+
 2.click_add_provider_to_original.csv
 
-                                                                                    
+Next put all 3 original files back to one file like it was at the start:
+
+Everything.csv
+
+
 Last step convert to an excel file named: 
 Report_Results.xlsx                                                                                   
 
 
-note: again final report still hasban issue with ignored ip's, i will work on rectifying this.
+note: again final report still has an issue with ignored ip's, i will work on rectifying this.
 
