@@ -17,6 +17,7 @@ Then the next step is to extract the list of IP's from Email Opened and Clicked 
 2.ip_list_Click.csv
                                                                                                                                              
 Then isp whois lookup: 
+
 1.ip_result_Open.csv  
 2.ip_result_click.csv
 
