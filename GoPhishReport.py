@@ -169,8 +169,6 @@ add_header_rows(input_file, output_file, header_rows)
 
 ################################################################################################################
 
-
-
 print(pd.read_csv("ip_list_Click.csv")) 
 
 
@@ -220,7 +218,7 @@ print(f'WHOIS results saved to {output_file}')
 print("-" * 50)
 print("Time Finished: "+str(datetime.now()))
 print ("\n")
-print("Script finished, results are nearly ready")
+print(" results are nearly ready")
 print("-" * 50)
 
 
@@ -331,7 +329,7 @@ file2_path = 'Open_add_provider_to_original.csv'
 file3_path = 'Click_add_provider_to_original.csv'
 
 # Output file path
-output_file_path = 'allhail.csv'
+output_file_path = 'Everthing.csv'
 
 # Read data from file1
 file1_data = []
@@ -373,7 +371,7 @@ print("-" * 50)
 print('Final step convert to excel:'+str(datetime.now()))
 print("-" * 50)
 
-csv_file = 'allhail.csv'
+csv_file = 'Everything.csv'
 df = pd.read_csv(csv_file)
 
 new_order =['id','status', 'send_date', 'modified_date', 'email', 'first_name', 'last_name','reported', 'ip', 'asn_description', 'country', 'blank','latitude', 'longitude', 'position']
