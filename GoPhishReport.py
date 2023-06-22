@@ -329,7 +329,7 @@ file2_path = 'Open_add_provider_to_original.csv'
 file3_path = 'Click_add_provider_to_original.csv'
 
 # Output file path
-output_file_path = 'Everthing.csv'
+output_file_path = 'Everything.csv'
 
 # Read data from file1
 file1_data = []
