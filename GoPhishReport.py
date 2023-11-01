@@ -25,7 +25,7 @@ print("-" * 50)
 
 
 df =pd.read_csv(file_name)
-print(df[['status','ip','email','id']])
+#print(df[['status','ip','email','id']])
 
 for (status), group in df.groupby(["status"]):
      group.to_csv(f'{status}.csv',index=False) 
@@ -374,7 +374,7 @@ print("-" * 50)
 csv_file = 'Everything.csv'
 df = pd.read_csv(csv_file)
 
-new_order =['id','status', 'send_date', 'modified_date', 'email', 'first_name', 'last_name','reported', 'ip', 'asn_description', 'country', 'blank','latitude', 'longitude', 'position']
+new_order =['id','status', 'time', 'campaign_id', 'email', 'ip', 'asn_description', 'country', 'blank']
 df = df[new_order]
 
 excel_file = 'Report_Results.xlsx'
