@@ -6,12 +6,19 @@ import socket
 import csv
 import re
 import ipwhois
+import ipaddress
 import whois
 from pprint import pprint
 from datetime import datetime
 import socket
 from time import sleep
 
+def is_private_ip(ip):
+    try:
+        ip_obj = ipaddress.ip_address(ip)
+        return ip_obj.is_private
+    except ValueError:
+        return False
 
 print("-" * 50)
 print("GoPhish Reporting : "+str(datetime.now()))
@@ -25,10 +32,10 @@ print("-" * 50)
 
 
 df =pd.read_csv(file_name)
-#print(df[['status','ip','email','id']])
+#print(df[['message','ip','email','id']])
 
-for (status), group in df.groupby(["status"]):
-     group.to_csv(f'{status}.csv',index=False) 
+for (message), group in df.groupby(["message"]):
+     group.to_csv(f'{message}.csv',index=False) 
                                  
 print(pd.read_csv("Email Opened.csv"))
 print(pd.read_csv("Clicked Link.csv")) 
@@ -104,13 +111,10 @@ sleep(60)
 print('starting isp provider lookup from ip_list_open.csv')
 print("-" * 50)
 
-def ip_whois_lookup(ip):
-    if ip.startswith('10.'):
-        print(f'skipping private ip {ip} in the 10.*  range')
-        return None
-    if ip.startswith('172.'):
-        print(f'skipping private ip {ip} in the 172.* range')
-        return None
+def ip_whois_lookup(ip):     
+    if is_private_ip(ip):         
+        print(f'skipping private IP address {ip}')         
+        return 'Private IP Address'
     try:
         obj = IPWhois(ip)
         result = obj.lookup_rdap(depth=1)
@@ -171,7 +175,6 @@ add_header_rows(input_file, output_file, header_rows)
 
 print(pd.read_csv("ip_list_Click.csv")) 
 
-
 print("-" * 50)
 print("Time next step: "+str(datetime.now()))
 print("-" * 50)
@@ -179,13 +182,18 @@ sleep(60)
 print('starting isp provider lookup of clicked links')
 print("-" * 50)
 
-def ip_whois_lookup(ip):
-    if ip.startswith('10.'):
-        print(f'skipping private ip {ip} in the 10.*  range')
-        return None
-    if ip.startswith('172.'):
-        print(f'skipping private ip {ip} in the 172.* range')
-        return None
+def is_private_ip(ip):     
+    try:         
+        ip_obj = ipaddress.ip_address(ip)         
+        return ip_obj.is_private     
+    except ValueError:         
+        return False
+
+def ip_whois_lookup(ip):     
+    if is_private_ip(ip):         
+        print(f'skipping private IP address {ip}')         
+        return 'Private IP Address'
+
     try:
         obj = IPWhois(ip)
         result = obj.lookup_rdap(depth=1)
@@ -374,7 +382,7 @@ print("-" * 50)
 csv_file = 'Everything.csv'
 df = pd.read_csv(csv_file)
 
-new_order =['id','status', 'time', 'campaign_id', 'email', 'ip', 'asn_description', 'country', 'blank']
+new_order =['id','message', 'time', 'campaign_id', 'email','ip', 'asn_description', 'country', 'blank']
 df = df[new_order]
 
 excel_file = 'Report_Results.xlsx'
@@ -390,3 +398,160 @@ print("Time Finished: "+str(datetime.now()))
 print ("\n")
 print("Script finished, results are ready ")
 print("-" * 50)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
